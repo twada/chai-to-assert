@@ -18,11 +18,6 @@ testTransform({
 });
 
 testTransform({
-    before: 'expect(foo).to.be.true',
-    after:  'assert(foo === true)'
-});
-
-testTransform({
     before: 'expect(foo).to.not.be.ok',
     after:  'assert(!foo)'
 });
@@ -35,4 +30,14 @@ testTransform({
 testTransform({
     before: 'expect(foo).have.to.be.ok',
     after:  'assert(foo)'
+});
+
+testTransform({
+    before: 'expect(foo).to.be.true',
+    after:  'assert(foo === true)'
+});
+
+testTransform({
+    before: 'expect(foo).to.not.be.true',
+    after:  'assert(foo !== true)'
 });
