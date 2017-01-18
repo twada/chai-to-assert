@@ -5,6 +5,8 @@ A jscodeshift codemod that transforms from chai to assert.
 
 [![License][license-image]][license-url]
 
+Status: Highly experimental
+
 
 AUTHOR
 ---------------------------------------
