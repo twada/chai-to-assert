@@ -74,3 +74,13 @@ testTransform({
     before: 'expect(0).to.not.be.false',
     after:  'assert(0 !== false)'
 });
+
+testTransform({
+    before: 'expect(null).to.be.null',
+    after:  'assert(null === null)'
+});
+
+testTransform({
+    before: 'expect(undefined).to.not.be.null',
+    after:  'assert(undefined !== null)'
+});
