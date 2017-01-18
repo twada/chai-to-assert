@@ -21,3 +21,9 @@ testTransform({
     before: 'expect(foo).to.be.true',
     after:  'assert(foo === true)'
 });
+
+testTransform({
+    before: 'expect(foo).to.not.be.ok',
+    after:  'assert(!foo)'
+});
+
