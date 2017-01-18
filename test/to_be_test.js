@@ -6,7 +6,7 @@ var tranform = require('../lib/expect-to-assert');
 var noop = function () {};
 
 function testTransform (opts) {
-    it(opts.before, function () {
+    it(opts.before + ' => ' + opts.after, function () {
         var output = tranform({path: 'test.js', source: opts.before}, {jscodeshift: jscodeshift, stats: noop});
         assert.equal(output, opts.after);
     });
@@ -40,4 +40,37 @@ testTransform({
 testTransform({
     before: 'expect(foo).to.not.be.true',
     after:  'assert(foo !== true)'
+});
+
+testTransform({
+    before: 'expect(foo).to.be.false',
+    after:  'assert(foo === false)'
+});
+
+testTransform({
+    before: 'expect(foo).to.not.be.false',
+    after:  'assert(foo !== false)'
+});
+
+
+// from Chai API Reference
+
+testTransform({
+    before: 'expect(true).to.be.true',
+    after:  'assert(true === true)'
+});
+
+testTransform({
+    before: 'expect(1).to.not.be.true',
+    after:  'assert(1 !== true)'
+});
+
+testTransform({
+    before: 'expect(false).to.be.false',
+    after:  'assert(false === false)'
+});
+
+testTransform({
+    before: 'expect(0).to.not.be.false',
+    after:  'assert(0 !== false)'
 });
