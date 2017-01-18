@@ -10,3 +10,9 @@ it('expect(foo).to.be.ok', function () {
     var output = tranform({path: 'test.js', source: input}, {jscodeshift: jscodeshift, stats: noop});
     assert.equal(output, 'assert(foo)');
 });
+
+it('expect(foo).to.be.true', function () {
+    var input = 'expect(foo).to.be.true';
+    var output = tranform({path: 'test.js', source: input}, {jscodeshift: jscodeshift, stats: noop});
+    assert.equal(output, 'assert(foo === true)');
+});
