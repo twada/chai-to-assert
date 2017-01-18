@@ -5,14 +5,19 @@ var jscodeshift = require('jscodeshift');
 var tranform = require('../lib/expect-to-assert');
 var noop = function () {};
 
-it('expect(foo).to.be.ok', function () {
-    var input = 'expect(foo).to.be.ok';
-    var output = tranform({path: 'test.js', source: input}, {jscodeshift: jscodeshift, stats: noop});
-    assert.equal(output, 'assert(foo)');
+function testTransform (opts) {
+    it(opts.before, function () {
+        var output = tranform({path: 'test.js', source: opts.before}, {jscodeshift: jscodeshift, stats: noop});
+        assert.equal(output, opts.after);
+    });
+}
+
+testTransform({
+    before: 'expect(foo).to.be.ok',
+    after:  'assert(foo)'
 });
 
-it('expect(foo).to.be.true', function () {
-    var input = 'expect(foo).to.be.true';
-    var output = tranform({path: 'test.js', source: input}, {jscodeshift: jscodeshift, stats: noop});
-    assert.equal(output, 'assert(foo === true)');
+testTransform({
+    before: 'expect(foo).to.be.true',
+    after:  'assert(foo === true)'
 });
