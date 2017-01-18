@@ -27,3 +27,12 @@ testTransform({
     after:  'assert(!foo)'
 });
 
+testTransform({
+    before: 'expect(foo).not.to.be.ok',
+    after:  'assert(!foo)'
+});
+
+testTransform({
+    before: 'expect(foo).have.to.be.ok',
+    after:  'assert(foo)'
+});
