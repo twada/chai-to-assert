@@ -84,3 +84,13 @@ testTransform({
     before: 'expect(undefined).to.not.be.null',
     after:  'assert(undefined !== null)'
 });
+
+testTransform({
+    before: 'expect(undefined).to.be.undefined',
+    after:  'assert(undefined === undefined)'
+});
+
+testTransform({
+    before: 'expect(null).to.not.be.undefined',
+    after:  'assert(null !== undefined)'
+});
