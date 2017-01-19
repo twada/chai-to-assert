@@ -94,3 +94,23 @@ testTransform({
     before: 'expect(null).to.not.be.undefined',
     after:  'assert(null !== undefined)'
 });
+
+testTransform({
+    before: 'expect("hello").to.equal("hello")',
+    after:  'assert("hello" === "hello")'
+});
+
+testTransform({
+    before: 'expect(42).to.equal(42)',
+    after:  'assert(42 === 42)'
+});
+
+testTransform({
+    before: 'expect(1).to.not.equal(true)',
+    after:  'assert(1 !== true)'
+});
+
+testTransform({
+    before: 'expect({ foo: "bar" }).to.not.equal({ foo: "bar" })',
+    after:  'assert({ foo: "bar" } !== { foo: "bar" })'
+});
