@@ -124,3 +124,13 @@ testTransform({
     before: 'expect(foo).to.not.deep.equal(baz)',
     after:  'assert.notDeepStrictEqual(foo, baz)'
 });
+
+testTransform({
+    before: 'expect({ foo: "bar" }).to.eql({ foo: "bar" })',
+    after:  'assert.deepStrictEqual({ foo: "bar" }, { foo: "bar" })'
+});
+
+testTransform({
+    before: 'expect({ foo: "bar" }).to.not.eql({ foo: "baz" })',
+    after:  'assert.notDeepStrictEqual({ foo: "bar" }, { foo: "baz" })'
+});
