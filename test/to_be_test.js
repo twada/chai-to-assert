@@ -134,3 +134,23 @@ testTransform({
     before: 'expect({ foo: "bar" }).to.not.eql({ foo: "baz" })',
     after:  'assert.notDeepStrictEqual({ foo: "bar" }, { foo: "baz" })'
 });
+
+testTransform({
+    before: 'expect("test").to.be.a("string")',
+    after:  'assert(typeof "test" === "string")'
+});
+
+testTransform({
+    before: 'expect({ foo: "bar" }).to.be.an("object")',
+    after:  'assert(typeof { foo: "bar" } === "object")'
+});
+
+testTransform({
+    before: 'expect(undefined).to.be.an("undefined")',
+    after:  'assert(typeof undefined === "undefined")'
+});
+
+testTransform({
+    before: 'expect(Symbol()).to.be.a("symbol")',
+    after:  'assert(typeof Symbol() === "symbol")'
+});
