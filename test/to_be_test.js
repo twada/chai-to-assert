@@ -141,6 +141,11 @@ testTransform({
 });
 
 testTransform({
+    before: 'expect(foo).to.not.be.a("string")',
+    after:  'assert(typeof foo !== "string")'
+});
+
+testTransform({
     before: 'expect({ foo: "bar" }).to.be.an("object")',
     after:  'assert(typeof { foo: "bar" } === "object")'
 });
@@ -153,4 +158,14 @@ testTransform({
 testTransform({
     before: 'expect(Symbol()).to.be.a("symbol")',
     after:  'assert(typeof Symbol() === "symbol")'
+});
+
+testTransform({
+    before: 'expect(foo).to.be.a("null")',
+    after:  'assert(foo === null)'
+});
+
+testTransform({
+    before: 'expect(foo).to.not.be.a("null")',
+    after:  'assert(foo !== null)'
 });
