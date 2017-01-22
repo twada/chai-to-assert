@@ -169,3 +169,13 @@ testTransform({
     before: 'expect(foo).to.not.be.a("null")',
     after:  'assert(foo !== null)'
 });
+
+testTransform({
+    before: 'expect([ 1, 2, 3 ]).to.be.instanceof(Array)',
+    after:  'assert([ 1, 2, 3 ] instanceof Array)'
+});
+
+testTransform({
+    before: 'expect(foo).to.not.be.instanceof(Array)',
+    after:  'assert(!(foo instanceof Array))'
+});
