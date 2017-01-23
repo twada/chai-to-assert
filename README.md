@@ -4,6 +4,7 @@ chai-to-assert
 A [jscodeshift](https://github.com/facebook/jscodeshift) codemod that transforms from [chai](http://chaijs.com/) to [Node assert](https://nodejs.org/api/assert.html).
 
 [![Build Status][travis-image]][travis-url]
+[![NPM version][npm-image]][npm-url]
 [![License][license-image]][license-url]
 [![Development Status][status-image]][status-url]
 
@@ -26,6 +27,10 @@ AUTHOR
 LICENSE
 ---------------------------------------
 Licensed under the [MIT](https://github.com/twada/chai-to-assert/blob/master/LICENSE) license.
+
+
+[npm-url]: https://npmjs.org/package/chai-to-assert
+[npm-image]: https://badge.fury.io/js/chai-to-assert.svg
 
 [travis-url]: https://travis-ci.org/twada/chai-to-assert
 [travis-image]: https://secure.travis-ci.org/twada/chai-to-assert.svg?branch=master
