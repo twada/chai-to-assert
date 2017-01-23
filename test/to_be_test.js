@@ -204,3 +204,19 @@ describe('.instanceof()', function () {
         after:  'assert(!(bar instanceof Array))'
     });
 });
+
+describe('.match(regexp)', function () {
+    testTransform({
+        before: 'expect(str).to.match(re)',
+        after:  'assert(re.test(str) === true)'
+    });
+    testTransform({
+        before: 'expect("foobar").to.match(/^foo/)',
+        after:  'assert(/^foo/.test("foobar") === true)'
+    });
+    testTransform({
+        before: 'expect(str).to.not.match(re)',
+        after:  'assert(re.test(str) === false)'
+    });
+});
+
