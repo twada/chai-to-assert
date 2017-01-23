@@ -314,3 +314,24 @@ describe('.least(value)', function () {
         });
     });
 });
+
+describe('.below(value)', function () {
+    testTransform({
+        before: 'expect(five).to.be.below(10)',
+        after:  'assert(five < 10)'
+    });
+    testTransform({
+        before: 'expect(four).to.not.be.lessThan(one)',
+        after:  'assert(four >= one)'
+    });
+    describe('.lengthOf chain', function () {
+        testTransform({
+            before: 'expect("foo").to.have.lengthOf.below(4)',
+            after:  'assert("foo".length < 4)'
+        });
+        testTransform({
+            before: 'expect([1, 2, 3]).to.not.have.lengthOf.lt(two)',
+            after:  'assert([1, 2, 3].length >= two)'
+        });
+    });
+});
