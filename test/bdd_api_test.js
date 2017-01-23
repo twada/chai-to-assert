@@ -293,3 +293,24 @@ describe('.above(value)', function () {
         });
     });
 });
+
+describe('.least(value)', function () {
+    testTransform({
+        before: 'expect(ten).to.be.at.least(10)',
+        after:  'assert(ten >= 10)'
+    });
+    testTransform({
+        before: 'expect(eight).to.not.be.gte(nine)',
+        after:  'assert(eight < nine)'
+    });
+    describe('.lengthOf chain', function () {
+        testTransform({
+            before: 'expect("foo").to.have.lengthOf.at.least(2)',
+            after:  'assert("foo".length >= 2)'
+        });
+        testTransform({
+            before: 'expect([1, 2, 3]).to.not.have.lengthOf.at.least(3)',
+            after:  'assert([1, 2, 3].length < 3)'
+        });
+    });
+});
