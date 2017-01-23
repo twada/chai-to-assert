@@ -209,3 +209,13 @@ testTransform({
     before: 'expect(foo).to.not.be.instanceof(Array)',
     after:  'assert(!(foo instanceof Array))'
 });
+
+testTransform({
+    before: 'expect(foo).to.be.instanceOf(Array)',
+    after:  'assert(foo instanceof Array)'
+});
+
+testTransform({
+    before: 'expect(bar).to.not.be.instanceOf(Array)',
+    after:  'assert(!(bar instanceof Array))'
+});
