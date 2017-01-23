@@ -5,8 +5,7 @@ A [jscodeshift](https://github.com/facebook/jscodeshift) codemod that transforms
 
 [![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
-
-Status: Experimental
+[![Development Status][status-image]][status-url]
 
 
 USAGE
@@ -33,3 +32,6 @@ Licensed under the [MIT](https://github.com/twada/chai-to-assert/blob/master/LIC
 
 [license-url]: https://github.com/twada/chai-to-assert/blob/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+
+[status-url]: https://github.com/twada/chai-to-assert/blob/master/CHANGELOG.md
+[status-image]: https://img.shields.io/badge/status-experimental-orange.svg
