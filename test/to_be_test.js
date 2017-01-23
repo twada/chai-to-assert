@@ -156,6 +156,16 @@ testTransform({
 });
 
 testTransform({
+    before: 'expect(foo).to.eqls(bar)',
+    after:  'assert.deepStrictEqual(foo, bar)'
+});
+
+testTransform({
+    before: 'expect(foo).to.not.eqls(bar)',
+    after:  'assert.notDeepStrictEqual(foo, bar)'
+});
+
+testTransform({
     before: 'expect("test").to.be.a("string")',
     after:  'assert(typeof "test" === "string")'
 });
