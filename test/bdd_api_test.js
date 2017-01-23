@@ -282,4 +282,14 @@ describe('.above(value)', function () {
         before: 'expect(one).to.not.be.greaterThan(seven)',
         after:  'assert(one <= seven)'
     });
+    describe('.lengthOf chain', function () {
+        testTransform({
+            before: 'expect("foo").to.have.lengthOf.above(2)',
+            after:  'assert("foo".length > 2)'
+        });
+        testTransform({
+            before: 'expect([1, 2, 3]).to.not.have.lengthOf.gt(five)',
+            after:  'assert([1, 2, 3].length <= five)'
+        });
+    });
 });
