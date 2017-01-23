@@ -7,6 +7,7 @@
     "email": "takuto.wada@gmail.com",
     "url": "https://github.com/twada"
   },
+  "bugs": "https://github.com/twada/chai-to-assert/issues",
   "devDependencies": {
     "jscodeshift": "^0.3.30",
     "mocha": "^3.0.0"
@@ -19,6 +20,7 @@
     "lib",
     "package.json"
   ],
+  "homepage": "https://github.com/twada/chai-to-assert",
   "keywords": [
     "assert",
     "chai",
@@ -26,6 +28,10 @@
   ],
   "license": "MIT",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twada/chai-to-assert.git"
+  },
   "scripts": {
     "test": "mocha test"
   }
