@@ -335,3 +335,24 @@ describe('.below(value)', function () {
         });
     });
 });
+
+describe('.most(value)', function () {
+    testTransform({
+        before: 'expect(five).to.be.at.most(5)',
+        after:  'assert(five <= 5)'
+    });
+    testTransform({
+        before: 'expect(five).to.not.be.lte(two)',
+        after:  'assert(five > two)'
+    });
+    describe('.lengthOf chain', function () {
+        testTransform({
+            before: 'expect("foo").to.have.lengthOf.at.most(4)',
+            after:  'assert("foo".length <= 4)'
+        });
+        testTransform({
+            before: 'expect([1, 2, 3]).to.not.have.lengthOf.lte(two)',
+            after:  'assert([1, 2, 3].length > two)'
+        });
+    });
+});
