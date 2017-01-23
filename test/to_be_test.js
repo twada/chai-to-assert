@@ -101,6 +101,26 @@ testTransform({
 });
 
 testTransform({
+    before: 'expect(foo).to.equals(bar)',
+    after:  'assert(foo === bar)'
+});
+
+testTransform({
+    before: 'expect(foo).to.not.equals(bar)',
+    after:  'assert(foo !== bar)'
+});
+
+testTransform({
+    before: 'expect(foo).to.eq(bar)',
+    after:  'assert(foo === bar)'
+});
+
+testTransform({
+    before: 'expect(foo).to.not.eq(bar)',
+    after:  'assert(foo !== bar)'
+});
+
+testTransform({
     before: 'expect(42).to.equal(42)',
     after:  'assert(42 === 42)'
 });
