@@ -261,3 +261,14 @@ describe('.respondTo(method)', function () {
         });
     });
 });
+
+describe('.lengthOf(value)', function () {
+    testTransform({
+        before: 'expect([1, 2, 3]).to.have.lengthOf(3)',
+        after:  'assert([1, 2, 3].length === 3)'
+    });
+    testTransform({
+        before: 'expect(str).to.not.have.length(zero)',
+        after:  'assert(str.length !== zero)'
+    });
+});
