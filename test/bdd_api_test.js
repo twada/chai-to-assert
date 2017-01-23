@@ -230,3 +230,34 @@ describe('.string(string)', function () {
         after:  'assert(str.indexOf(substr) === -1)'
     });
 });
+
+describe('.respondTo(method)', function () {
+    testTransform({
+        before: 'expect(obj).respondsTo("bar")',
+        after:  'assert(typeof obj["bar"] === "function")'
+    });
+    testTransform({
+        before: 'expect(obj).to.not.respondTo("baz")',
+        after:  'assert(typeof obj["baz"] === "undefined")'
+    });
+    describe('Klass', function () {
+        testTransform({
+            before: 'expect(Klass).respondsTo("bar")',
+            after:  'assert(typeof Klass.prototype["bar"] === "function")'
+        });
+        testTransform({
+            before: 'expect(Klass).not.respondTo("baz")',
+            after:  'assert(typeof Klass.prototype["baz"] === "undefined")'
+        });
+    });
+    describe('Klass .itself', function () {
+        testTransform({
+            before: 'expect(Klass).itself.respondsTo("bar")',
+            after:  'assert(typeof Klass["bar"] === "function")'
+        });
+        testTransform({
+            before: 'expect(Klass).itself.not.respondTo("baz")',
+            after:  'assert(typeof Klass["baz"] === "undefined")'
+        });
+    });
+});
