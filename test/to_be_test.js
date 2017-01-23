@@ -220,3 +220,13 @@ describe('.match(regexp)', function () {
     });
 });
 
+describe('.string(string)', function () {
+    testTransform({
+        before: 'expect(str).to.string(substr)',
+        after:  'assert(str.indexOf(substr) !== -1)'
+    });
+    testTransform({
+        before: 'expect(str).to.not.string(substr)',
+        after:  'assert(str.indexOf(substr) === -1)'
+    });
+});
