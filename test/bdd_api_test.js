@@ -272,3 +272,14 @@ describe('.lengthOf(value)', function () {
         after:  'assert(str.length !== zero)'
     });
 });
+
+describe('.above(value)', function () {
+    testTransform({
+        before: 'expect(ten).to.be.above(5)',
+        after:  'assert(ten > 5)'
+    });
+    testTransform({
+        before: 'expect(one).to.not.be.greaterThan(seven)',
+        after:  'assert(one <= seven)'
+    });
+});
