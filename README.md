@@ -1,12 +1,22 @@
 chai-to-assert
 ================================
 
-A jscodeshift codemod that transforms from chai to assert.
+A [jscodeshift](https://github.com/facebook/jscodeshift) codemod that transforms from [chai](http://chaijs.com/) to [Node assert](https://nodejs.org/api/assert.html).
 
 [![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
 
-Status: Highly experimental
+Status: Experimental
+
+
+USAGE
+---------------------------------------
+
+```sh
+$ npm install -g jscodeshift
+$ npm install chai-to-assert
+$ jscodeshift -t node_modules/chai-to-assert/lib/expect-to-assert.js target-dir
+```
 
 
 AUTHOR
