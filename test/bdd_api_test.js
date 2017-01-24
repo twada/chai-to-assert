@@ -366,4 +366,14 @@ describe('.within(start,finish)', function () {
         before: 'expect(two).to.not.be.within(five,ten)',
         after:  'assert(two < five || ten < two)'
     });
+    describe('.lengthOf chain', function () {
+        testTransform({
+            before: 'expect("foo").to.have.lengthOf.within(2,4)',
+            after:  'assert(2 <= "foo".length && "foo".length <= 4)'
+        });
+        testTransform({
+            before: 'expect([1]).to.not.have.lengthOf.within(2,4)',
+            after:  'assert([1].length < 2 || 4 < [1].length)'
+        });
+    });
 });
