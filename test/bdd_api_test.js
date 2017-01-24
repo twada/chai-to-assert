@@ -356,3 +356,14 @@ describe('.most(value)', function () {
         });
     });
 });
+
+describe('.within(start,finish)', function () {
+    testTransform({
+        before: 'expect(seven).to.be.within(five,ten)',
+        after:  'assert(five <= seven && seven <= ten)'
+    });
+    testTransform({
+        before: 'expect(two).to.not.be.within(five,ten)',
+        after:  'assert(two < five || ten < two)'
+    });
+});
