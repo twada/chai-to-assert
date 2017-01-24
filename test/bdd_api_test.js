@@ -238,7 +238,7 @@ describe('.respondTo(method)', function () {
     });
     testTransform({
         before: 'expect(obj).to.not.respondTo("baz")',
-        after:  'assert(typeof obj["baz"] === "undefined")'
+        after:  'assert(typeof obj["baz"] !== "function")'
     });
     describe('Klass', function () {
         testTransform({
@@ -247,7 +247,7 @@ describe('.respondTo(method)', function () {
         });
         testTransform({
             before: 'expect(Klass).not.respondTo("baz")',
-            after:  'assert(typeof Klass.prototype["baz"] === "undefined")'
+            after:  'assert(typeof Klass.prototype["baz"] !== "function")'
         });
     });
     describe('Klass .itself', function () {
@@ -257,7 +257,7 @@ describe('.respondTo(method)', function () {
         });
         testTransform({
             before: 'expect(Klass).itself.not.respondTo("baz")',
-            after:  'assert(typeof Klass["baz"] === "undefined")'
+            after:  'assert(typeof Klass["baz"] !== "function")'
         });
     });
 });
