@@ -377,3 +377,14 @@ describe('.within(start,finish)', function () {
         });
     });
 });
+
+describe('.finite', function () {
+    testTransform({
+        before: 'expect(4).to.be.finite',
+        after:  'assert(typeof 4 === "number" && isFinite(4))'
+    });
+    testTransform({
+        before: 'expect(Infinity).to.not.be.finite',
+        after:  'assert(typeof Infinity !== "number" || !isFinite(Infinity))'
+    });
+});
