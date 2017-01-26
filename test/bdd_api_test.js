@@ -388,3 +388,14 @@ describe('.finite', function () {
         after:  'assert(typeof Infinity !== "number" || !isFinite(Infinity))'
     });
 });
+
+describe('.NaN', function () {
+    testTransform({
+        before: 'expect(foo).to.be.NaN',
+        after:  'assert(typeof foo === "number" && foo !== foo)'
+    });
+    testTransform({
+        before: 'expect(bar).to.not.be.NaN',
+        after:  'assert(typeof bar !== "number" || bar === bar)'
+    });
+});
