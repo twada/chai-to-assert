@@ -399,3 +399,14 @@ describe('.NaN', function () {
         after:  'assert(typeof bar !== "number" || bar === bar)'
     });
 });
+
+describe('.exist', function () {
+    testTransform({
+        before: 'expect(foo).to.exist',
+        after:  'assert(foo !== null && foo !== undefined)'
+    });
+    testTransform({
+        before: 'expect(bar).to.not.exist',
+        after:  'assert(bar === null || bar === undefined)'
+    });
+});
