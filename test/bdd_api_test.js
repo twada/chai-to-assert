@@ -410,3 +410,18 @@ describe('.exist', function () {
         after:  'assert(bar === null || bar === undefined)'
     });
 });
+
+describe('.satisfy(method)', function () {
+    testTransform({
+        before: 'expect(n).to.satisfy(isPositive)',
+        after:  'assert(isPositive(n))'
+    });
+    testTransform({
+        before: 'expect(n).to.satisfy(function(num) { return num > 0; })',
+        after:  'assert(function(num) { return num > 0; }(n))'
+    });
+    testTransform({
+        before: 'expect(n).to.not.satisfy(isPositive)',
+        after:  'assert(!isPositive(n))'
+    });
+});
