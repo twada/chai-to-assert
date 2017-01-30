@@ -425,3 +425,18 @@ describe('.satisfy(method)', function () {
         after:  'assert(!isPositive(n))'
     });
 });
+
+describe('.oneOf(list)', function () {
+    testTransform({
+        before: 'expect(item).to.be.oneOf(ary)',
+        after:  'assert(ary.indexOf(item) !== -1)'
+    });
+    testTransform({
+        before: 'expect("a").to.be.oneOf(["a", "b", "c"])',
+        after:  'assert(["a", "b", "c"].indexOf("a") !== -1)'
+    });
+    testTransform({
+        before: 'expect(item).to.not.be.oneOf(ary)',
+        after:  'assert(ary.indexOf(item) === -1)'
+    });
+});
