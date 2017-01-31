@@ -91,6 +91,39 @@ describe('.undefined', function () {
     });
 });
 
+describe('.finite', function () {
+    testTransform({
+        before: 'expect(4).to.be.finite',
+        after:  'assert(typeof 4 === "number" && isFinite(4))'
+    });
+    testTransform({
+        before: 'expect(Infinity).to.not.be.finite',
+        after:  'assert(typeof Infinity !== "number" || !isFinite(Infinity))'
+    });
+});
+
+describe('.NaN', function () {
+    testTransform({
+        before: 'expect(foo).to.be.NaN',
+        after:  'assert(typeof foo === "number" && foo !== foo)'
+    });
+    testTransform({
+        before: 'expect(bar).to.not.be.NaN',
+        after:  'assert(typeof bar !== "number" || bar === bar)'
+    });
+});
+
+describe('.exist', function () {
+    testTransform({
+        before: 'expect(foo).to.exist',
+        after:  'assert(foo !== null && foo !== undefined)'
+    });
+    testTransform({
+        before: 'expect(bar).to.not.exist',
+        after:  'assert(bar === null || bar === undefined)'
+    });
+});
+
 describe('.equal()', function () {
     testTransform({
         before: 'expect("hello").to.equal("hello")',
@@ -375,39 +408,6 @@ describe('.within(start,finish)', function () {
             before: 'expect([1]).to.not.have.lengthOf.within(2,4)',
             after:  'assert([1].length < 2 || 4 < [1].length)'
         });
-    });
-});
-
-describe('.finite', function () {
-    testTransform({
-        before: 'expect(4).to.be.finite',
-        after:  'assert(typeof 4 === "number" && isFinite(4))'
-    });
-    testTransform({
-        before: 'expect(Infinity).to.not.be.finite',
-        after:  'assert(typeof Infinity !== "number" || !isFinite(Infinity))'
-    });
-});
-
-describe('.NaN', function () {
-    testTransform({
-        before: 'expect(foo).to.be.NaN',
-        after:  'assert(typeof foo === "number" && foo !== foo)'
-    });
-    testTransform({
-        before: 'expect(bar).to.not.be.NaN',
-        after:  'assert(typeof bar !== "number" || bar === bar)'
-    });
-});
-
-describe('.exist', function () {
-    testTransform({
-        before: 'expect(foo).to.exist',
-        after:  'assert(foo !== null && foo !== undefined)'
-    });
-    testTransform({
-        before: 'expect(bar).to.not.exist',
-        after:  'assert(bar === null || bar === undefined)'
     });
 });
 
