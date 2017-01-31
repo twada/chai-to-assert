@@ -440,3 +440,14 @@ describe('.oneOf(list)', function () {
         after:  'assert(ary.indexOf(item) === -1)'
     });
 });
+
+describe('.throw([errorLike], [errMsgMatcher])', function () {
+    testTransform({
+        before: 'expect(func).to.throw()',
+        after:  'assert.throws(func)'
+    });
+    testTransform({
+        before: 'expect(func).to.not.throw()',
+        after:  'assert.doesNotThrow(func)'
+    });
+});
