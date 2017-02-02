@@ -10,7 +10,9 @@
   "bugs": "https://github.com/twada/chai-to-assert/issues",
   "devDependencies": {
     "jscodeshift": "^0.3.30",
-    "mocha": "^3.0.0"
+    "mocha": "^3.0.0",
+    "semistandard": "^9.2.1",
+    "snazzy": "^6.0.0"
   },
   "files": [
     "README.md",
@@ -33,6 +35,13 @@
     "url": "git://github.com/twada/chai-to-assert.git"
   },
   "scripts": {
+    "lint": "semistandard --verbose | snazzy",
     "test": "mocha test"
+  },
+  "semistandard": {
+    "globals": [
+      "describe",
+      "it"
+    ]
   }
 }

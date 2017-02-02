@@ -7,6 +7,7 @@ A [jscodeshift](https://github.com/facebook/jscodeshift) codemod that transforms
 [![NPM version][npm-image]][npm-url]
 [![License][license-image]][license-url]
 [![Development Status][status-image]][status-url]
+[![Code Style][style-image]][style-url]
 
 
 USAGE
@@ -40,3 +41,6 @@ Licensed under the [MIT](https://github.com/twada/chai-to-assert/blob/master/LIC
 
 [status-url]: https://github.com/twada/chai-to-assert/blob/master/CHANGELOG.md
 [status-image]: https://img.shields.io/badge/status-experimental-orange.svg
+
+[style-url]: https://github.com/Flet/semistandard
+[style-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg
