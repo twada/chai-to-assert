@@ -472,4 +472,12 @@ describe('.throw([errorLike], [errMsgMatcher])', function () {
     before: 'expect(func).to.not.throw(/error message/)',
     after: 'assert.doesNotThrow(func, /error message/)'
   });
+  testTransform({
+    before: 'expect(func).to.throw(SomeError, /error message/)',
+    after: 'assert.throws(func, function(err) {\n  return err instanceof SomeError && /error message/.test(err.message);\n})'
+  });
+  testTransform({
+    before: 'expect(func).to.not.throw(SomeError, /error message/)',
+    after: 'assert.doesNotThrow(func, function(err) {\n  return err instanceof SomeError && /error message/.test(err.message);\n})'
+  });
 });
