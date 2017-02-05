@@ -5,16 +5,16 @@
 * `.finite`
 * `.NaN`
 * `.exist`
-* `.above()`, `.gt()`, `.greaterThan()`,
-* `.least()`, `.gte()`,
-* `.below()`, `.lt()`, `.lessThan()`,
-* `.most()`, `.lte()`,
-* `.within()`,
-* `.length()`, `.lengthOf()`,
-* `.respondTo()`, `.respondsTo()`,
-* `.satisfy()`, `.satisfies()`,
-* `.throw()`, `.throws()`, `.Throw()`,
-* `.oneOf()`,
+* `.lengthOf()`, `.length()`
+* `.above()`, `.gt()`, `.greaterThan()`
+* `.least()`, `.gte()`
+* `.below()`, `.lt()`, `.lessThan()`
+* `.most()`, `.lte()`
+* `.within()`
+* `.respondTo()`, `.respondsTo()`
+* `.satisfy()`, `.satisfies()`
+* `.throw()`, `.throws()`, `.Throw()`
+* `.oneOf()`
 
 
 ## [0.1.0](https://github.com/twada/chai-to-assert/releases/tag/v0.1.0) (2017-01-23)

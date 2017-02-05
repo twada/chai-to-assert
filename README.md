@@ -20,6 +20,43 @@ $ jscodeshift -t node_modules/chai-to-assert/lib/expect-to-assert.js target-dir
 ```
 
 
+FEATURES
+---------------------------------------
+
+### properties
+
+* `.ok`
+* `.true`
+* `.false`
+* `.null`
+* `.undefined`
+* `.finite`
+* `.NaN`
+* `.exist`
+
+### chainable methods
+
+* `.a()`, `.an()` (only for primitives and null)
+* `.lengthOf()`, `.length()`
+
+### methods
+
+* `.instanceof()`, `.instanceOf()`
+* `.match()`, `.matches()`
+* `.string()`
+* `.equal()`, `.equals()`, `.eq()`
+* `.eql()`, `.eqls()`
+* `.above()`, `.gt()`, `.greaterThan()`
+* `.least()`, `.gte()`
+* `.below()`, `.lt()`, `.lessThan()`
+* `.most()`, `.lte()`
+* `.within()`
+* `.respondTo()`, `.respondsTo()`
+* `.satisfy()`, `.satisfies()`
+* `.throw()`, `.throws()`, `.Throw()`
+* `.oneOf()`
+
+
 AUTHOR
 ---------------------------------------
 * [Takuto Wada](https://github.com/twada)
@@ -40,7 +77,7 @@ Licensed under the [MIT](https://github.com/twada/chai-to-assert/blob/master/LIC
 [license-image]: https://img.shields.io/badge/license-MIT-brightgreen.svg
 
 [status-url]: https://github.com/twada/chai-to-assert/blob/master/CHANGELOG.md
-[status-image]: https://img.shields.io/badge/status-experimental-orange.svg
+[status-image]: https://img.shields.io/badge/status-beta-yellow.svg
 
 [style-url]: https://github.com/Flet/semistandard
 [style-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg
