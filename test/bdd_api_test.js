@@ -499,12 +499,24 @@ describe('.property(name, [value])', function () {
     before: 'expect(obj).to.not.have.property("foo", "bar")',
     after: 'assert(obj["foo"] !== "bar")'
   });
-  testTransform({
-    before: 'expect(obj).to.have.deep.property("foo", { bar: "baz" })',
-    after: 'assert.deepStrictEqual(obj["foo"], { bar: "baz" })'
+  describe('.deep', function () {
+    testTransform({
+      before: 'expect(obj).to.have.deep.property("foo", { bar: "baz" })',
+      after: 'assert.deepStrictEqual(obj["foo"], { bar: "baz" })'
+    });
+    testTransform({
+      before: 'expect(obj).to.not.have.deep.property("foo", { bar: "quux" })',
+      after: 'assert.notDeepStrictEqual(obj["foo"], { bar: "quux" })'
+    });
   });
-  testTransform({
-    before: 'expect(obj).to.not.have.deep.property("foo", { bar: "quux" })',
-    after: 'assert.notDeepStrictEqual(obj["foo"], { bar: "quux" })'
+  describe('.own', function () {
+    testTransform({
+      before: 'expect(obj).to.have.own.property("foo")',
+      after: 'assert(obj.hasOwnProperty("foo"))'
+    });
+    testTransform({
+      before: 'expect(obj).to.not.have.own.property("toString")',
+      after: 'assert(!obj.hasOwnProperty("toString"))'
+    });
   });
 });
