@@ -491,4 +491,12 @@ describe('.property(name, [value])', function () {
     before: 'expect(obj).to.not.have.property("foo")',
     after: 'assert(!("foo" in obj))'
   });
+  testTransform({
+    before: 'expect(obj).to.have.property("foo", "bar")',
+    after: 'assert(obj["foo"] === "bar")'
+  });
+  testTransform({
+    before: 'expect(obj).to.not.have.property("foo", "bar")',
+    after: 'assert(obj["foo"] !== "bar")'
+  });
 });
