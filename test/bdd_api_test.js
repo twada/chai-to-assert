@@ -518,5 +518,13 @@ describe('.property(name, [value])', function () {
       before: 'expect(obj).to.not.have.own.property("toString")',
       after: 'assert(!obj.hasOwnProperty("toString"))'
     });
+    testTransform({
+      before: 'expect(obj).to.have.own.property("foo", "bar")',
+      after: 'assert(obj.hasOwnProperty("foo") && obj["foo"] === "bar")'
+    });
+    testTransform({
+      before: 'expect(obj).to.not.have.own.property("foo", "bar")',
+      after: 'assert(!obj.hasOwnProperty("foo") || obj["foo"] !== "bar")'
+    });
   });
 });
