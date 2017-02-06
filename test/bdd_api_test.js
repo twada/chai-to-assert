@@ -481,3 +481,14 @@ describe('.throw([errorLike], [errMsgMatcher])', function () {
     after: 'assert.doesNotThrow(func, function(err) {\n  return err instanceof SomeError && /error message/.test(err.message);\n})'
   });
 });
+
+describe('.property(name, [value])', function () {
+  testTransform({
+    before: 'expect(obj).to.have.property("foo")',
+    after: 'assert("foo" in obj)'
+  });
+  testTransform({
+    before: 'expect(obj).to.not.have.property("foo")',
+    after: 'assert(!("foo" in obj))'
+  });
+});
