@@ -527,4 +527,14 @@ describe('.property(name, [value])', function () {
       after: 'assert(!obj.hasOwnProperty("foo") || obj["foo"] !== "bar")'
     });
   });
+  describe('.deep.own', function () {
+    testTransform({
+      before: 'expect(obj).to.have.deep.own.property("foo", { bar: "baz" })',
+      after: 'assert(obj.hasOwnProperty("foo")), assert.deepStrictEqual(obj["foo"], { bar: "baz" })'
+    });
+    testTransform({
+      before: 'expect(obj).to.have.not.deep.own.property("foo", { bar: "baz" })',
+      after: 'assert(!obj.hasOwnProperty("foo")), assert.notDeepStrictEqual(obj["foo"], { bar: "baz" })'
+    });
+  });
 });
