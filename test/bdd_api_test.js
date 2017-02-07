@@ -537,4 +537,48 @@ describe('.property(name, [value])', function () {
       after: 'assert(!obj.hasOwnProperty("foo")), assert.notDeepStrictEqual(obj["foo"], { bar: "baz" })'
     });
   });
+  describe('.ownProperty(name, [value])', function () {
+    testTransform({
+      before: 'expect(obj).to.have.ownProperty("foo")',
+      after: 'assert(obj.hasOwnProperty("foo"))'
+    });
+    testTransform({
+      before: 'expect(obj).to.not.have.ownProperty("toString")',
+      after: 'assert(!obj.hasOwnProperty("toString"))'
+    });
+    testTransform({
+      before: 'expect(obj).to.have.ownProperty("foo", "bar")',
+      after: 'assert(obj.hasOwnProperty("foo") && obj["foo"] === "bar")'
+    });
+    testTransform({
+      before: 'expect(obj).to.not.have.ownProperty("foo", "bar")',
+      after: 'assert(!obj.hasOwnProperty("foo") || obj["foo"] !== "bar")'
+    });
+    testTransform({
+      before: 'expect(obj).to.have.deep.ownProperty("foo", { bar: "baz" })',
+      after: 'assert(obj.hasOwnProperty("foo")), assert.deepStrictEqual(obj["foo"], { bar: "baz" })'
+    });
+    testTransform({
+      before: 'expect(obj).to.have.not.deep.ownProperty("foo", { bar: "baz" })',
+      after: 'assert(!obj.hasOwnProperty("foo")), assert.notDeepStrictEqual(obj["foo"], { bar: "baz" })'
+    });
+  });
+  describe('.haveOwnProperty(name, [value])', function () {
+    testTransform({
+      before: 'expect(obj).to.haveOwnProperty("foo")',
+      after: 'assert(obj.hasOwnProperty("foo"))'
+    });
+    testTransform({
+      before: 'expect(obj).to.not.haveOwnProperty("toString")',
+      after: 'assert(!obj.hasOwnProperty("toString"))'
+    });
+    testTransform({
+      before: 'expect(obj).to.haveOwnProperty("foo", "bar")',
+      after: 'assert(obj.hasOwnProperty("foo") && obj["foo"] === "bar")'
+    });
+    testTransform({
+      before: 'expect(obj).to.not.haveOwnProperty("foo", "bar")',
+      after: 'assert(!obj.hasOwnProperty("foo") || obj["foo"] !== "bar")'
+    });
+  });
 });
