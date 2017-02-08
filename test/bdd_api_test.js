@@ -583,7 +583,7 @@ describe('.property(name, [value])', function () {
   });
 });
 
-describe('.ownPropertyDescriptor(name)', function () {
+describe('.ownPropertyDescriptor(name, [descriptor])', function () {
   testTransform({
     before: 'expect("test").to.have.ownPropertyDescriptor("length")',
     after: 'assert(Object.getOwnPropertyDescriptor(Object("test"), "length"))'
@@ -591,5 +591,17 @@ describe('.ownPropertyDescriptor(name)', function () {
   testTransform({
     before: 'expect("test").to.not.have.ownPropertyDescriptor("foo")',
     after: 'assert(!Object.getOwnPropertyDescriptor(Object("test"), "foo"))'
+  });
+  testTransform({
+    before: 'expect("test").to.have.ownPropertyDescriptor("length", { enumerable: false, configurable: false, writable: false, value: 4 })',
+    after: 'assert.deepStrictEqual(\n  Object.getOwnPropertyDescriptor(Object("test"), "length"),\n  { enumerable: false, configurable: false, writable: false, value: 4 }\n)'
+  });
+  testTransform({
+    before: 'expect("test").to.not.have.ownPropertyDescriptor("length", { enumerable: false, configurable: false, writable: false, value: 3 })',
+    after: 'assert.notDeepStrictEqual(\n  Object.getOwnPropertyDescriptor(Object("test"), "length"),\n  { enumerable: false, configurable: false, writable: false, value: 3 }\n)'
+  });
+  testTransform({
+    before: 'expect("test").to.haveOwnPropertyDescriptor("length")',
+    after: 'assert(Object.getOwnPropertyDescriptor(Object("test"), "length"))'
   });
 });
