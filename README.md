@@ -36,25 +36,28 @@ FEATURES
 
 ### chainable methods
 
-* `.a()`, `.an()` (only for primitives and null)
-* `.lengthOf()`, `.length()`
+* `.a(type)` (alias `an`) (only for primitives and null)
+* `.lengthOf(value)` (alias `.length`)
 
 ### methods
 
-* `.instanceof()`, `.instanceOf()`
-* `.match()`, `.matches()`
-* `.string()`
-* `.equal()`, `.equals()`, `.eq()`
-* `.eql()`, `.eqls()`
-* `.above()`, `.gt()`, `.greaterThan()`
-* `.least()`, `.gte()`
-* `.below()`, `.lt()`, `.lessThan()`
-* `.most()`, `.lte()`
-* `.within()`
-* `.respondTo()`, `.respondsTo()`
-* `.satisfy()`, `.satisfies()`
-* `.throw()`, `.throws()`, `.Throw()`
-* `.oneOf()`
+* `.equal(value)` (alias `.equals`, `.eq`)
+* `.eql(value)` (alias `.eqls`)
+* `.property(name, [value])`
+* `.match(regexp)` (alias `.matches`)
+* `.above(value)` (alias `.gt`, `.greaterThan`)
+* `.least(value)` (alias `.gte`)
+* `.below(value)` (alias `.lt`, `.lessThan`)
+* `.most(value)` (alias `.lte`)
+* `.within(start, finish)`
+* `.instanceof(constructor)` (alias `.instanceOf`)
+* `.throw([errorLike], [errMsgMatcher])` (alias `.throws`, `.Throw`)
+* `.ownProperty(name, [value])` (alias `.haveOwnProperty`)
+* `.ownPropertyDescriptor(name, [descriptor])` (alias `.haveOwnPropertyDescriptor`)
+* `.respondTo(method)` (alias `.respondsTo`)
+* `.satisfy(predicate)` (alias `.satisfies`)
+* `.string(string)`
+* `.oneOf(list)`
 
 
 AUTHOR
