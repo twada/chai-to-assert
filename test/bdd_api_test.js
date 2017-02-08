@@ -582,3 +582,14 @@ describe('.property(name, [value])', function () {
     });
   });
 });
+
+describe('.ownPropertyDescriptor(name)', function () {
+  testTransform({
+    before: 'expect("test").to.have.ownPropertyDescriptor("length")',
+    after: 'assert(Object.getOwnPropertyDescriptor(Object("test"), "length"))'
+  });
+  testTransform({
+    before: 'expect("test").to.not.have.ownPropertyDescriptor("foo")',
+    after: 'assert(!Object.getOwnPropertyDescriptor(Object("test"), "foo"))'
+  });
+});
