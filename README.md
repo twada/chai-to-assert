@@ -56,6 +56,7 @@ FEATURES
 * `.ownPropertyDescriptor(name, [descriptor])` (alias `.haveOwnPropertyDescriptor`)
 * `.respondTo(method)` (alias `.respondsTo`)
 * `.satisfy(predicate)` (alias `.satisfies`)
+* `.closeTo(expected, delta)` (alias `.approximately`)
 * `.string(string)`
 * `.oneOf(list)`
 

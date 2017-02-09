@@ -605,3 +605,14 @@ describe('.ownPropertyDescriptor(name, [descriptor])', function () {
     after: 'assert(Object.getOwnPropertyDescriptor(Object("test"), "length"))'
   });
 });
+
+describe('.closeTo(expected, delta)', function () {
+  testTransform({
+    before: 'expect(1.5).to.be.closeTo(1, 0.5)',
+    after: 'assert(Math.abs(1.5 - 1) <= 0.5)'
+  });
+  testTransform({
+    before: 'expect(num).to.not.be.approximately(expected, delta)',
+    after: 'assert(Math.abs(num - expected) > delta)'
+  });
+});
