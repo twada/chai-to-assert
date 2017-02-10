@@ -33,6 +33,7 @@ FEATURES
 * `.finite`
 * `.NaN`
 * `.exist`
+* `.extensible`
 
 ### chainable methods
 

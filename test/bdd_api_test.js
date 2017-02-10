@@ -616,3 +616,14 @@ describe('.closeTo(expected, delta)', function () {
     after: 'assert(Math.abs(num - expected) > delta)'
   });
 });
+
+describe('.extensible', function () {
+  testTransform({
+    before: 'expect(obj).to.be.extensible',
+    after: 'assert(obj === Object(obj) && Object.isExtensible(obj))'
+  });
+  testTransform({
+    before: 'expect(obj).to.not.be.extensible',
+    after: 'assert(obj !== Object(obj) || !Object.isExtensible(obj))'
+  });
+});
