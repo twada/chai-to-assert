@@ -627,3 +627,14 @@ describe('.extensible', function () {
     after: 'assert(obj !== Object(obj) || !Object.isExtensible(obj))'
   });
 });
+
+describe('.sealed', function () {
+  testTransform({
+    before: 'expect(obj).to.be.sealed',
+    after: 'assert((obj === Object(obj) ? Object.isSealed(obj) : true))'
+  });
+  testTransform({
+    before: 'expect(obj).to.not.be.sealed',
+    after: 'assert((obj === Object(obj) ? !Object.isSealed(obj) : false))'
+  });
+});

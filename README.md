@@ -34,6 +34,7 @@ FEATURES
 * `.NaN`
 * `.exist`
 * `.extensible`
+* `.sealed`
 
 ### chainable methods
 
