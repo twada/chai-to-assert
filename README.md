@@ -35,6 +35,7 @@ FEATURES
 * `.exist`
 * `.extensible`
 * `.sealed`
+* `.frozen`
 
 ### chainable methods
 

@@ -638,3 +638,14 @@ describe('.sealed', function () {
     after: 'assert((obj === Object(obj) ? !Object.isSealed(obj) : false))'
   });
 });
+
+describe('.frozen', function () {
+  testTransform({
+    before: 'expect(obj).to.be.frozen',
+    after: 'assert((obj === Object(obj) ? Object.isFrozen(obj) : true))'
+  });
+  testTransform({
+    before: 'expect(obj).to.not.be.frozen',
+    after: 'assert((obj === Object(obj) ? !Object.isFrozen(obj) : false))'
+  });
+});
