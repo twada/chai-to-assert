@@ -1,3 +1,13 @@
+## [0.4.0](https://github.com/twada/chai-to-assert/releases/tag/v0.4.0) (2017-02-14)
+
+#### Features
+
+* `.closeTo(expected, delta)` (alias `.approximately`)
+* `.extensible`
+* `.sealed`
+* `.frozen`
+
+
 ## [0.3.0](https://github.com/twada/chai-to-assert/releases/tag/v0.3.0) (2017-02-08)
 
 #### Features
