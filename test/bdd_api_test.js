@@ -97,14 +97,14 @@ describe('.undefined', function () {
   });
 });
 
-describe('.finite', function () {
+describe('.exist', function () {
   testTransform({
-    before: 'expect(4).to.be.finite',
-    after: 'assert(typeof 4 === "number" && isFinite(4))'
+    before: 'expect(foo).to.exist',
+    after: 'assert(foo !== null && foo !== undefined)'
   });
   testTransform({
-    before: 'expect(Infinity).to.not.be.finite',
-    after: 'assert(typeof Infinity !== "number" || !isFinite(Infinity))'
+    before: 'expect(bar).to.not.exist',
+    after: 'assert(bar === null || bar === undefined)'
   });
 });
 
@@ -119,14 +119,47 @@ describe('.NaN', function () {
   });
 });
 
-describe('.exist', function () {
+describe('.finite', function () {
   testTransform({
-    before: 'expect(foo).to.exist',
-    after: 'assert(foo !== null && foo !== undefined)'
+    before: 'expect(4).to.be.finite',
+    after: 'assert(typeof 4 === "number" && isFinite(4))'
   });
   testTransform({
-    before: 'expect(bar).to.not.exist',
-    after: 'assert(bar === null || bar === undefined)'
+    before: 'expect(Infinity).to.not.be.finite',
+    after: 'assert(typeof Infinity !== "number" || !isFinite(Infinity))'
+  });
+});
+
+describe('.extensible', function () {
+  testTransform({
+    before: 'expect(obj).to.be.extensible',
+    after: 'assert(obj === Object(obj) && Object.isExtensible(obj))'
+  });
+  testTransform({
+    before: 'expect(obj).to.not.be.extensible',
+    after: 'assert(obj !== Object(obj) || !Object.isExtensible(obj))'
+  });
+});
+
+describe('.sealed', function () {
+  testTransform({
+    before: 'expect(obj).to.be.sealed',
+    after: 'assert((obj === Object(obj) ? Object.isSealed(obj) : true))'
+  });
+  testTransform({
+    before: 'expect(obj).to.not.be.sealed',
+    after: 'assert((obj === Object(obj) ? !Object.isSealed(obj) : false))'
+  });
+});
+
+describe('.frozen', function () {
+  testTransform({
+    before: 'expect(obj).to.be.frozen',
+    after: 'assert((obj === Object(obj) ? Object.isFrozen(obj) : true))'
+  });
+  testTransform({
+    before: 'expect(obj).to.not.be.frozen',
+    after: 'assert((obj === Object(obj) ? !Object.isFrozen(obj) : false))'
   });
 });
 
@@ -614,38 +647,5 @@ describe('.closeTo(expected, delta)', function () {
   testTransform({
     before: 'expect(num).to.not.be.approximately(expected, delta)',
     after: 'assert(Math.abs(num - expected) > delta)'
-  });
-});
-
-describe('.extensible', function () {
-  testTransform({
-    before: 'expect(obj).to.be.extensible',
-    after: 'assert(obj === Object(obj) && Object.isExtensible(obj))'
-  });
-  testTransform({
-    before: 'expect(obj).to.not.be.extensible',
-    after: 'assert(obj !== Object(obj) || !Object.isExtensible(obj))'
-  });
-});
-
-describe('.sealed', function () {
-  testTransform({
-    before: 'expect(obj).to.be.sealed',
-    after: 'assert((obj === Object(obj) ? Object.isSealed(obj) : true))'
-  });
-  testTransform({
-    before: 'expect(obj).to.not.be.sealed',
-    after: 'assert((obj === Object(obj) ? !Object.isSealed(obj) : false))'
-  });
-});
-
-describe('.frozen', function () {
-  testTransform({
-    before: 'expect(obj).to.be.frozen',
-    after: 'assert((obj === Object(obj) ? Object.isFrozen(obj) : true))'
-  });
-  testTransform({
-    before: 'expect(obj).to.not.be.frozen',
-    after: 'assert((obj === Object(obj) ? !Object.isFrozen(obj) : false))'
   });
 });

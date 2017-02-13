@@ -5,9 +5,9 @@ A [jscodeshift](https://github.com/facebook/jscodeshift) codemod that transforms
 
 [![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
-[![License][license-image]][license-url]
 [![Development Status][status-image]][status-url]
 [![Code Style][style-image]][style-url]
+[![License][license-image]][license-url]
 
 
 USAGE
@@ -30,9 +30,9 @@ FEATURES
 * `.false`
 * `.null`
 * `.undefined`
-* `.finite`
-* `.NaN`
 * `.exist`
+* `.NaN`
+* `.finite`
 * `.extensible`
 * `.sealed`
 * `.frozen`
@@ -46,20 +46,20 @@ FEATURES
 
 * `.equal(value)` (alias `.equals`, `.eq`)
 * `.eql(value)` (alias `.eqls`)
-* `.property(name, [value])`
 * `.match(regexp)` (alias `.matches`)
 * `.above(value)` (alias `.gt`, `.greaterThan`)
 * `.least(value)` (alias `.gte`)
 * `.below(value)` (alias `.lt`, `.lessThan`)
 * `.most(value)` (alias `.lte`)
 * `.within(start, finish)`
-* `.instanceof(constructor)` (alias `.instanceOf`)
-* `.throw([errorLike], [errMsgMatcher])` (alias `.throws`, `.Throw`)
+* `.closeTo(expected, delta)` (alias `.approximately`)
+* `.property(name, [value])`
 * `.ownProperty(name, [value])` (alias `.haveOwnProperty`)
 * `.ownPropertyDescriptor(name, [descriptor])` (alias `.haveOwnPropertyDescriptor`)
+* `.instanceof(constructor)` (alias `.instanceOf`)
+* `.throw([errorLike], [errMsgMatcher])` (alias `.throws`, `.Throw`)
 * `.respondTo(method)` (alias `.respondsTo`)
 * `.satisfy(predicate)` (alias `.satisfies`)
-* `.closeTo(expected, delta)` (alias `.approximately`)
 * `.string(string)`
 * `.oneOf(list)`
 
