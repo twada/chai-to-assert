@@ -2,7 +2,7 @@
 
 var assert = require('assert');
 var jscodeshift = require('jscodeshift');
-var tranform = require('../lib/expect-to-assert');
+var tranform = require('../lib/bdd-api-to-node-assert');
 var noop = function () {};
 
 function testTransform (opts) {

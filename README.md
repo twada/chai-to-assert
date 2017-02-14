@@ -16,7 +16,7 @@ USAGE
 ```sh
 $ npm install -g jscodeshift
 $ npm install chai-to-assert
-$ jscodeshift -t node_modules/chai-to-assert/lib/expect-to-assert.js target-dir
+$ jscodeshift -t node_modules/chai-to-assert/lib/bdd-api-to-node-assert.js target-dir
 ```
 
 
