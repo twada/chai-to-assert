@@ -23,7 +23,12 @@ $ jscodeshift -t node_modules/chai-to-assert/lib/bdd-api-to-node-assert.js targe
 FEATURES
 ---------------------------------------
 
-### properties
+### BDD Style API
+
+* `expect`
+* `should`
+
+#### properties
 
 * `.ok`
 * `.true`
@@ -37,12 +42,12 @@ FEATURES
 * `.sealed`
 * `.frozen`
 
-### chainable methods
+#### chainable methods
 
 * `.a(type)` (alias `an`) (only for primitives and null)
 * `.lengthOf(value)` (alias `.length`)
 
-### methods
+#### methods
 
 * `.equal(value)` (alias `.equals`, `.eq`)
 * `.eql(value)` (alias `.eqls`)
