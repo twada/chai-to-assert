@@ -1,4 +1,4 @@
-## [0.5.0](https://github.com/twada/chai-to-assert/releases/tag/v0.5.0) (2017-02-15)
+## [1.0.0](https://github.com/twada/chai-to-assert/releases/tag/v1.0.0) (2017-02-15)
 
 #### Features
 

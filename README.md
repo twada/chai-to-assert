@@ -5,7 +5,6 @@ A [jscodeshift](https://github.com/facebook/jscodeshift) codemod that transforms
 
 [![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
-[![Development Status][status-image]][status-url]
 [![Code Style][style-image]][style-url]
 [![License][license-image]][license-url]
 
@@ -87,9 +86,6 @@ Licensed under the [MIT](https://github.com/twada/chai-to-assert/blob/master/LIC
 
 [license-url]: https://github.com/twada/chai-to-assert/blob/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT-brightgreen.svg
-
-[status-url]: https://github.com/twada/chai-to-assert/blob/master/CHANGELOG.md
-[status-image]: https://img.shields.io/badge/status-beta-yellow.svg
 
 [style-url]: https://github.com/Flet/semistandard
 [style-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg
