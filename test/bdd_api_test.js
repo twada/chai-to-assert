@@ -18,6 +18,21 @@ function testTransform (opts) {
   });
 }
 
+describe('should style', function () {
+  testTransform({
+    before: 'foo.should.be.ok',
+    after: 'assert(foo)'
+  });
+  testTransform({
+    before: 'str.should.equal("hello")',
+    after: 'assert(str === "hello")'
+  });
+  testTransform({
+    before: 'foo.bar(baz).should.not.be.null',
+    after: 'assert(foo.bar(baz) !== null)'
+  });
+});
+
 describe('.ok', function () {
   testTransform({
     before: 'expect(foo).to.be.ok',
