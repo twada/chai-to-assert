@@ -4,18 +4,21 @@
 
 * support BDD `should` style as well ([9f68bd6a](https://github.com/twada/chai-to-assert/commit/9f68bd6ae4aa94118236497722efbaf6f7abbc8d))
 
-
 #### Breaking Changes
 
-* transform file name has changed
+* transform file name has changed ([6e339515](https://github.com/twada/chai-to-assert/commit/6e339515877c45f9e216e8a8288ed97c1e1ccd75))
 
 before:
+
+```
 $ jscodeshift -t node_modules/chai-to-assert/lib/expect-to-assert.js target-dir
+```
 
 after:
-$ jscodeshift -t node_modules/chai-to-assert/lib/bdd-api-to-node-assert.js target-dir
 
- ([6e339515](https://github.com/twada/chai-to-assert/commit/6e339515877c45f9e216e8a8288ed97c1e1ccd75))
+```
+$ jscodeshift -t node_modules/chai-to-assert/lib/bdd-api-to-node-assert.js target-dir
+```
 
 
 ## [0.4.0](https://github.com/twada/chai-to-assert/releases/tag/v0.4.0) (2017-02-14)
