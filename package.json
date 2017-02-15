@@ -1,6 +1,6 @@
 {
   "name": "chai-to-assert",
-  "description": "chai to assert codemod",
+  "description": "A jscodeshift codemod that transforms from chai to Node assert",
   "version": "1.0.0",
   "author": {
     "name": "Takuto Wada",
@@ -26,7 +26,8 @@
   "keywords": [
     "assert",
     "chai",
-    "codemod"
+    "codemod",
+    "jscodeshift"
   ],
   "license": "MIT",
   "main": "index.js",
