@@ -36,6 +36,7 @@
     "url": "git://github.com/twada/chai-to-assert.git"
   },
   "scripts": {
+    "fmt": "semistandard --fix",
     "lint": "semistandard --verbose | snazzy",
     "test": "mocha test"
   },
