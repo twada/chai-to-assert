@@ -7,13 +7,17 @@ var noop = function () {};
 
 function testTransform (opts) {
   it(opts.before + ' => ' + opts.after, function () {
-    var output = tranform({
-      path: 'test.js',
-      source: opts.before
-    }, {
-      jscodeshift: jscodeshift,
-      stats: noop
-    });
+    var output = tranform(
+      {
+        path: 'test.js',
+        source: opts.before
+      },
+      {
+        jscodeshift: jscodeshift,
+        stats: noop
+      },
+      Object.assign({}, opts.options)
+    );
     assert.equal(output, opts.after);
   });
 }
@@ -120,6 +124,17 @@ describe('.exist', function () {
   testTransform({
     before: 'expect(bar).to.not.exist',
     after: 'assert(bar === null || bar === undefined)'
+  });
+});
+
+describe('.empty', function () {
+  testTransform({
+    before: 'expect(foo).to.be.empty',
+    after: 'assert(foo.length === 0)'
+  });
+  testTransform({
+    before: 'expect(foo).to.not.be.empty',
+    after: 'assert(foo.length !== 0)'
   });
 });
 
