@@ -288,6 +288,17 @@ describe('.a(), .an()', function () {
   });
 });
 
+describe('.include(value)', function () {
+  testTransform({
+    before: 'expect(ary).to.include(item)',
+    after: 'assert(ary.indexOf(item) !== -1)'
+  });
+  testTransform({
+    before: 'expect(str).to.not.contain(substr)',
+    after: 'assert(str.indexOf(substr) === -1)'
+  });
+});
+
 describe('.instanceof()', function () {
   testTransform({
     before: 'expect([ 1, 2, 3 ]).to.be.instanceof(Array)',
