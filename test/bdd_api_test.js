@@ -554,6 +554,22 @@ describe('.throw([errorLike], [errMsgMatcher])', function () {
     before: 'expect(func).to.not.throw(SomeError, /error message/)',
     after: 'assert.doesNotThrow(func, function(err) {\n  return err instanceof SomeError && /error message/.test(err.message);\n})'
   });
+  testTransform({
+    before: 'expect(func).to.throwError(SomeError)',
+    after: 'assert.throws(func, SomeError)'
+  });
+  testTransform({
+    before: 'expect(func).to.not.throwError(SomeError)',
+    after: 'assert.doesNotThrow(func, SomeError)'
+  });
+  testTransform({
+    before: 'expect(func).to.throwException(SomeError)',
+    after: 'assert.throws(func, SomeError)'
+  });
+  testTransform({
+    before: 'expect(func).to.not.throwException(SomeError)',
+    after: 'assert.doesNotThrow(func, SomeError)'
+  });
 });
 
 describe('.property(name, [value])', function () {
