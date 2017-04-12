@@ -226,6 +226,14 @@ describe('.equal()', function () {
     before: 'expect(foo).to.not.eq(bar)',
     after: 'assert(foo !== bar)'
   });
+  testTransform({
+    before: 'expect(foo).to.be(bar)',
+    after: 'assert(foo === bar)'
+  });
+  testTransform({
+    before: 'expect(foo).to.not.be(bar)',
+    after: 'assert(foo !== bar)'
+  });
   describe('.deep', function () {
     testTransform({
       before: 'expect({ foo: "bar" }).to.deep.equal({ foo: "bar" })',
@@ -256,6 +264,7 @@ describe('.eql()', function () {
     after: 'assert.notDeepStrictEqual(foo, bar)'
   });
 });
+
 
 describe('.a(), .an()', function () {
   testTransform({
